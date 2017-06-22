@@ -2,7 +2,7 @@
 #include "RainDrop.h"
 
 const int dropCount = 15;
-RainDrop drops[dropCount] = {};
+RainDrop *drops[dropCount] = {};
 
 Arduboy2 arduboy;
 
@@ -28,14 +28,14 @@ void loop() {
 
 void update() {
     for (int i = 0; i < dropCount; i++) {
-        drops[i].Update();
+        drops[i]->Update();
     }
 }
 
 void draw() {
     arduboy.clear();
     for (int i = 0; i < dropCount; i++) {
-        drops[i].Draw(arduboy);
+        drops[i]->Draw(arduboy);
     }
     arduboy.display();
 }
